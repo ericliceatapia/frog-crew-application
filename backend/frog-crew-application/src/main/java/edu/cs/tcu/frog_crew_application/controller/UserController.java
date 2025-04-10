@@ -1,7 +1,10 @@
 package edu.cs.tcu.frog_crew_application.controller;
 
+import edu.cs.tcu.frog_crew_application.dto.UserRegistrationDTO;
+import edu.cs.tcu.frog_crew_application.dto.UserUpdateDTO;
 import edu.cs.tcu.frog_crew_application.entity.User;
 import edu.cs.tcu.frog_crew_application.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +19,14 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<User> registerUser(@RequestBody User user) {
-        return ResponseEntity.ok(userService.registerUser(user));
+    public ResponseEntity<User> registerUser(@Valid @RequestBody UserRegistrationDTO userRegistrationDTO) {
+        User createdUser = userService.registerUser(userRegistrationDTO);
+        return ResponseEntity.ok(createdUser);
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<User> updateUser(@PathVariable Long id, @Valid @RequestBody UserUpdateDTO userUpdateDTO) {
+        User updatedUser = userService.updateUser(id, userUpdateDTO);
+        return ResponseEntity.ok(updatedUser);
     }
 }
