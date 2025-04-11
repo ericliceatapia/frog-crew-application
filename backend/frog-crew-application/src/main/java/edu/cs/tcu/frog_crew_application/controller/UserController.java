@@ -1,5 +1,6 @@
 package edu.cs.tcu.frog_crew_application.controller;
 
+import edu.cs.tcu.frog_crew_application.dto.CrewMemberProfileDTO;
 import edu.cs.tcu.frog_crew_application.dto.UserRegistrationDTO;
 import edu.cs.tcu.frog_crew_application.dto.UserUpdateDTO;
 import edu.cs.tcu.frog_crew_application.entity.User;
@@ -14,6 +15,7 @@ public class UserController {
 
     private final UserService userService;
 
+    // Constructor
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -28,5 +30,12 @@ public class UserController {
     public ResponseEntity<User> updateUser(@PathVariable Long id, @Valid @RequestBody UserUpdateDTO userUpdateDTO) {
         User updatedUser = userService.updateUser(id, userUpdateDTO);
         return ResponseEntity.ok(updatedUser);
+    }
+
+    // ⭐️ New endpoint for Use Case 3
+    @GetMapping("/{id}")
+    public ResponseEntity<CrewMemberProfileDTO> getCrewMemberProfile(@PathVariable Long id) {
+        CrewMemberProfileDTO profile = userService.getCrewMemberProfile(id);
+        return ResponseEntity.ok(profile);
     }
 }
