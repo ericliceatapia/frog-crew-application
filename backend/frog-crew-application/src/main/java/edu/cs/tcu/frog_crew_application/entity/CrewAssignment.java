@@ -1,11 +1,7 @@
 package edu.cs.tcu.frog_crew_application.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-import java.time.LocalDate;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import java.time.LocalTime;
 
 @Entity
@@ -15,51 +11,43 @@ public class CrewAssignment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String sport;
-    private String opponent;
-    private LocalDate gameDate;
-    private LocalTime gameTime;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "game_id")
+    private Game game; // Link to Game entity
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "user_id")
+    private User user; // Link to User entity
+
+    @NotNull(message = "Position is required.")
     private String position;
-    private String crewMemberName;
+
+    @NotNull(message = "Report time is required.")
     private LocalTime reportTime;
+
+    @NotNull(message = "Report location is required.")
     private String reportLocation;
 
-    // Getters and Setters
+    // --- Getters and Setters ---
 
     public Long getId() {
         return id;
     }
 
-    public String getSport() {
-        return sport;
+    public Game getGame() {
+        return game;
     }
 
-    public void setSport(String sport) {
-        this.sport = sport;
+    public void setGame(Game game) {
+        this.game = game;
     }
 
-    public String getOpponent() {
-        return opponent;
+    public User getUser() {
+        return user;
     }
-
-    public void setOpponent(String opponent) {
-        this.opponent = opponent;
-    }
-
-    public LocalDate getGameDate() {
-        return gameDate;
-    }
-
-    public void setGameDate(LocalDate gameDate) {
-        this.gameDate = gameDate;
-    }
-
-    public LocalTime getGameTime() {
-        return gameTime;
-    }
-
-    public void setGameTime(LocalTime gameTime) {
-        this.gameTime = gameTime;
+    
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getPosition() {
@@ -68,14 +56,6 @@ public class CrewAssignment {
 
     public void setPosition(String position) {
         this.position = position;
-    }
-
-    public String getCrewMemberName() {
-        return crewMemberName;
-    }
-
-    public void setCrewMemberName(String crewMemberName) {
-        this.crewMemberName = crewMemberName;
     }
 
     public LocalTime getReportTime() {

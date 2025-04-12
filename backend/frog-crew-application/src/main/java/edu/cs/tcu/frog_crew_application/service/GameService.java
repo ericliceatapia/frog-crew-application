@@ -22,8 +22,8 @@ public class GameService {
 
         return games.stream()
                 .map(game -> new GameDTO(
-                        game.getGameDate(),
-                        game.getGameTime(),
+                        game.getGameDate().toString(),   // Convert LocalDate to String
+                        game.getGameTime().toString(),   // Convert LocalTime to String
                         game.getOpponent(),
                         game.getVenue(),
                         game.getRequiredCrewPositions()

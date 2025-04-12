@@ -5,6 +5,12 @@ import edu.cs.tcu.frog_crew_application.dto.UserRegistrationDTO;
 import edu.cs.tcu.frog_crew_application.dto.UserUpdateDTO;
 import edu.cs.tcu.frog_crew_application.entity.User;
 import edu.cs.tcu.frog_crew_application.repository.UserRepository;
+import edu.cs.tcu.frog_crew_application.repository.CrewAssignmentRepository;
+
+import java.time.LocalDate;
+import java.util.List;
+
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -13,11 +19,13 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final CrewAssignmentRepository crewAssignmentRepository;
 
     // Constructor
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, CrewAssignmentRepository crewAssignmentRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.crewAssignmentRepository = crewAssignmentRepository;
     }
 
     public User registerUser(UserRegistrationDTO userRegistrationDTO) {
@@ -65,5 +73,36 @@ public class UserService {
                 user.getRole(),
                 user.getQualifiedPosition()
         );
+    }
+
+    public void deleteUser(Long id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Crew Member not found with ID: " + id));
+
+        // Check for future assignments
+        List<?> futureAssignments = crewAssignmentRepository.findFutureAssignmentsByCrewMember(
+                user.getFirstName() + " " + user.getLastName(),
+                LocalDate.now()
+        );
+
+        if (!futureAssignments.isEmpty()) {
+            throw new IllegalStateException("Crew Member cannot be deleted because they are assigned to upcoming games.");
+        }
+
+        // If no future assignments, delete the user
+        userRepository.delete(user);
+
+        // Simulate notification
+        System.out.println("🚨 Admin Notification: Crew Member " + user.getFirstName() + " " + user.getLastName() + " has been deleted.");
+    }
+
+    public List<User> getAllCrewMembers() {
+        List<User> crewMembers = userRepository.findAll();
+
+        if (crewMembers.isEmpty()) {
+            throw new IllegalStateException("No Crew Members registered in the system.");
+        }
+
+        return crewMembers;
     }
 }
