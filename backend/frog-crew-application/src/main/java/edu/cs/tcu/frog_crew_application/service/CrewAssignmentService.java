@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalTime;
+import java.util.List;
 
 @Service
 public class CrewAssignmentService {
@@ -28,6 +29,11 @@ public class CrewAssignmentService {
         this.gameRepository = gameRepository;
         this.userRepository = userRepository;
     }
+
+    public List<CrewAssignment> getCrewAssignmentsByGameId(Long gameId) {
+        return crewAssignmentRepository.findByGameId(gameId);
+    }
+    
 
     public CrewAssignment saveAssignment(CrewAssignmentCreationDto creationDto) {
         Game game = gameRepository.findById(creationDto.getGameId())

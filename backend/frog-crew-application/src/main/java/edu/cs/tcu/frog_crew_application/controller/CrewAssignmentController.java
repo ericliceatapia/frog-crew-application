@@ -4,7 +4,11 @@ package edu.cs.tcu.frog_crew_application.controller;
 import edu.cs.tcu.frog_crew_application.dto.CrewAssignmentCreationDto;
 import edu.cs.tcu.frog_crew_application.entity.CrewAssignment;
 import edu.cs.tcu.frog_crew_application.service.CrewAssignmentService;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,4 +26,11 @@ public class CrewAssignmentController {
     public CrewAssignment createCrewAssignment(@RequestBody CrewAssignmentCreationDto creationDto) {
         return crewAssignmentService.saveAssignment(creationDto);
     }
+    
+    @GetMapping("/game/{gameId}")
+    public ResponseEntity<List<CrewAssignment>> getAssignmentsByGame(@PathVariable Long gameId) {
+    List<CrewAssignment> crewAssignments = crewAssignmentService.getCrewAssignmentsByGameId(gameId);
+    return ResponseEntity.ok(crewAssignments);
+}
+
 }

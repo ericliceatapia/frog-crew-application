@@ -10,6 +10,9 @@ import java.util.List;
 
 public interface CrewAssignmentRepository extends JpaRepository<CrewAssignment, Long> {
 
+    @Query("SELECT ca FROM CrewAssignment ca WHERE ca.game.id = :gameId")
+    List<CrewAssignment> findByGameId(@Param("gameId") Long gameId);
+
     @Query("SELECT ca FROM CrewAssignment ca WHERE ca.game.opponent = :opponent")
     List<CrewAssignment> findByGameOpponent(@Param("opponent") String opponent);
 
