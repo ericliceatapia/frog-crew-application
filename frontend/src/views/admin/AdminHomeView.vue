@@ -1,11 +1,10 @@
-<script setup>
+<script setup></script>
 
-</script>
+<!-- Route: /admin -->
 
 <template>
-    <main>
-        <h1>This is the Admin home page.</h1>
-    </main>
+  <div class="p-4">
+    <h1 class="text-3xl font-bold mb-4">Admin Dashboard</h1>
+    <p>Welcome, Admin!</p>
+  </div>
 </template>
-
-<style></style>
