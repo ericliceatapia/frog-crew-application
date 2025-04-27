@@ -1,50 +1,63 @@
+<!-- Route: /login -->
+<template>
+  <div>
+    <h2>Login</h2>
+    <form @submit.prevent="handleLogin">
+      <div>
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          v-model="email"
+          required
+          placeholder="Enter your email"
+        />
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          v-model="password"
+          required
+          placeholder="Enter your password"
+        />
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</template>
+
+<!-- 4d1979 -->
+
 <script setup>
+import { login, getUserRole } from '@/apis/auth'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const email = ref('')
 const password = ref('')
+
 const router = useRouter()
 
-function login() {
-  console.log('Login attempted:', email.value)
+async function handleLogin() {
+  try {
+    await login(email.value, password.value)
 
-  if (email.value === 'admin@tcu.edu') {
-    router.push('/admin')
-  } else {
-    router.push('/crew-member')
+    const userRole = getUserRole()
+
+    if (userRole === 'admin') {
+      router.push('/admin')
+    } else if (userRole === 'crew-member') {
+      router.push('/crew-member')
+    } else {
+      router.push('/')
+    }
+  } catch (err) {
+    console.error('Login failed:', err)
+    alert('Login failed. Please try again.')
   }
 }
 </script>
-
-<!-- Route: /login -->
-
-<template>
-  <div class="flex items-center justify-center min-h-screen bg-[#4d1979]">
-    <div class="p-8 bg-white rounded shadow-md w-full max-w-md">
-      <h1 class="text-center text-3xl font-bold mb-4">Log In</h1>
-      <form @submit.prevent="login">
-        <label class="block text-sm font-medium mb-1">Email</label>
-        <input
-          v-model="email"
-          type="email"
-          class="w-full px-2 py-1 border rounded mb-4"
-          required
-        />
-        <label class="block text-sm font-medium mb-1">Password</label>
-        <input
-          v-model="password"
-          type="password"
-          class="w-full px-2 py-1 border rounded mb-6"
-          required
-        />
-        <button
-          type="submit"
-          class="w-full text-white py-2 rounded bg-[#4d1979] transition hover:bg-[#a072c6]"
-        >
-          Log In
-        </button>
-      </form>
-    </div>
-  </div>
-</template>
