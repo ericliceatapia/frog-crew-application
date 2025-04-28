@@ -1,0 +1,70 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Admin",
+      "lastName": "User",
+      "email": "admin@tcu.edu",
+      "password": "123",
+      "role": "admin",
+      "positions": ["DIRECTOR", "PRODUCER"]
+    },
+    {
+      "id": 2,
+      "firstName": "Crew",
+      "lastName": "Member",
+      "email": "crew@tcu.edu",
+      "password": "abc",
+      "role": "crew-member",
+      "positions": ["CAMERA"]
+    }
+  ],
+  "games": [
+    {
+        "id": "1",
+        "date": "2025-09-01",
+        "opponent": "Baylor",
+        "location": "Amon G. Carter Stadium",
+        "time": "14:30",
+        "sport": "Football"
+    },
+    {
+      "id": "2",
+      "date": "2025-09-08",
+      "opponent": "Texas Tech",
+      "location": "Jones AT&T Stadium",
+      "time": "14:30",
+      "sport": "Football"
+    }
+  ],
+  "availability": [
+    {
+      "id": 1,
+      "userId": 1,
+      "gameId": 1,
+      "available": true
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "gameId": 1,
+      "available": false
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "gameId": 2,
+      "available": true
+    },
+    {
+      "id": 4,
+      "userId": 2,
+      "gameId": 2,
+      "available": true
+    }
+  ],
+  "crewLists": [
+    { "id": "1", "gameId": 1, "crew": [1] },
+    { "id": "2", "gameId": 2, "crew": [1, 2] }
+  ]
+}
