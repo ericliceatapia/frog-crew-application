@@ -1,6 +1,12 @@
 <!-- Route: /login -->
+
 <template>
-  <div class="flex items-center justify-center min-h-screen bg-[#4d1979]">
+  <div v-if="loading" class="min-h-screen bg-[#4d1979]"></div>
+
+  <div
+    v-else
+    class="flex items-center justify-center min-h-screen bg-[#4d1979]"
+  >
     <div class="p-8 bg-white rounded shadow-md w-full max-w-md">
       <h2 class="text-3xl font-bold text-center mb-6">Log In</h2>
 
@@ -58,8 +64,13 @@ import { showOverlay, hideOverlay } from '@/utils/overlay'
 
 const email = ref('')
 const password = ref('')
+const loading = ref(true)
 
 const router = useRouter()
+
+setTimeout(() => {
+  loading.value = false
+}, 500)
 
 async function handleLogin() {
   try {
