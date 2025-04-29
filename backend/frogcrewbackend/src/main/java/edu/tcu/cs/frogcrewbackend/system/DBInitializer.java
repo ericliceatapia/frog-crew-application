@@ -44,7 +44,7 @@ public class DBInitializer implements CommandLineRunner {
         mem1.setFirstName("Bruce");
         mem1.setLastName("Wayne");
         mem1.setEmail("bw@gmail.com");
-        mem1.setPhoneNumber("1234567890");
+        mem1.setPhoneNumber("123-456-7890");
         mem1.setPassword("password1");
         mem1.setRole("ADMIN MEMBER");
         mem1.setPositions("Director");
@@ -54,7 +54,7 @@ public class DBInitializer implements CommandLineRunner {
         mem2.setFirstName("Clark");
         mem2.setLastName("Kent");
         mem2.setEmail("ck@gmail.com");
-        mem2.setPhoneNumber("9876543210");
+        mem2.setPhoneNumber("123-456-7890");
         mem2.setPassword("password2");
         mem2.setRole("ADMIN MEMBER");
         mem2.setPositions("Videographer Planner");
@@ -63,7 +63,7 @@ public class DBInitializer implements CommandLineRunner {
         mem3.setFirstName("Diana");
         mem3.setLastName("Prince");
         mem3.setEmail("dp@gmail.com");
-        mem3.setPhoneNumber("2222555555");
+        mem3.setPhoneNumber("123-456-7890");
         mem3.setPassword("password3");
         mem3.setRole("MEMBER");
         mem3.setPositions("Photographer Reporter");
@@ -72,7 +72,7 @@ public class DBInitializer implements CommandLineRunner {
         mem4.setFirstName("Hal");
         mem4.setLastName("Jordan");
         mem4.setEmail("hj@gmail.com");
-        mem4.setPhoneNumber("1357924680");
+        mem4.setPhoneNumber("123-456-7890");
         mem4.setPassword("password4");
         mem4.setRole("MEMBER");
         mem4.setPositions("Reporter Supervisor");
