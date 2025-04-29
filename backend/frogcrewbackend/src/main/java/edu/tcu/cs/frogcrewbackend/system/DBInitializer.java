@@ -54,7 +54,7 @@ public class DBInitializer implements CommandLineRunner {
         mem2.setFirstName("Clark");
         mem2.setLastName("Kent");
         mem2.setEmail("ck@gmail.com");
-        mem2.setPhoneNumber("123-456-7890");
+        mem2.setPhoneNumber("987-654-3210");
         mem2.setPassword("password2");
         mem2.setRole("ADMIN MEMBER");
         mem2.setPositions("Videographer Planner");
@@ -63,7 +63,7 @@ public class DBInitializer implements CommandLineRunner {
         mem3.setFirstName("Diana");
         mem3.setLastName("Prince");
         mem3.setEmail("dp@gmail.com");
-        mem3.setPhoneNumber("123-456-7890");
+        mem3.setPhoneNumber("222-255-5555");
         mem3.setPassword("password3");
         mem3.setRole("MEMBER");
         mem3.setPositions("Photographer Reporter");
@@ -72,7 +72,7 @@ public class DBInitializer implements CommandLineRunner {
         mem4.setFirstName("Hal");
         mem4.setLastName("Jordan");
         mem4.setEmail("hj@gmail.com");
-        mem4.setPhoneNumber("123-456-7890");
+        mem4.setPhoneNumber("135-792-4680");
         mem4.setPassword("password4");
         mem4.setRole("MEMBER");
         mem4.setPositions("Reporter Supervisor");
@@ -144,14 +144,13 @@ public class DBInitializer implements CommandLineRunner {
 
         // notifications
         Notification noti1 = new Notification();
-        noti1.setUser(mem1);
         noti1.setMessage("Need to be at all games this season");
         noti1.setRead(Boolean.FALSE);
         noti1.setDate("11/10/2024 14:00:00");
 
-        mem1.addNotification(noti1);
-
-        this.userRepository.save(mem1);
+        mem3.addNotification(noti1);
+        noti1.setUser(mem3);
+        this.userRepository.save(mem3);
         this.notificationRepository.save(noti1);
     }
 }
