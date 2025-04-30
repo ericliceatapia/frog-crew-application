@@ -30,7 +30,7 @@ const router = createRouter({
         {
           path: 'crew-list',
           name: 'admin-crew-list',
-          component: () => import('@/views/admin/ViewCrewListView.vue'),
+          component: () => import('@/views/admin/AdminCrewListView.vue'),
           meta: { title: 'View Crew Members' },
         },
         {

@@ -1,4 +1,4 @@
-import { apiGet, apiPut } from '@/utils/api'
+import { apiGet, apiPut, apiPost, apiDelete } from '@/utils/api'
 
 // Fetch single user by id
 export const getUserById = (id) => {
@@ -18,4 +18,14 @@ export const getUsersByRole = (role) => {
 // Update user profile
 export const updateUserProfile = (id, updateData) => {
   return apiPut(`/users/${id}`, updateData)
+}
+
+// Delete user by id
+export const deleteUserById = (id) => {
+  return apiDelete(`/users/${id}`)
+}
+
+// Create new user
+export const createUser = (userData) => {
+  return apiPost('/users', userData)
 }
