@@ -6,19 +6,19 @@
         v-model="email"
         type="email"
         placeholder="Email"
-        class="input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#a072c6]"
+        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#a072c6]"
         required
       />
       <input
         v-model="password"
         type="password"
         placeholder="Password"
-        class="input w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#a072c6]"
+        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#a072c6]"
         required
       />
     </div>
     <div class="mb-4">
-      <select v-model="role" class="input w-full" required>
+      <select v-model="role" class="w-full" required>
         <option value="" disabled>Select Role</option>
         <option value="CREW_MEMBER">Crew Member</option>
         <option value="ADMIN">Admin</option>

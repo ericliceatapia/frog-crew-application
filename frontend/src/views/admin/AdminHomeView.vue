@@ -11,7 +11,7 @@
         :crewCount="crewMembers.length"
         :gameCount="games.length"
       />
-      <AdminUpcomingGames :games="games" />
+      <UpcomingGames :games="games" />
     </div>
   </div>
 </template>
@@ -23,7 +23,7 @@ import { getAllGames } from '@/apis/games'
 
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue'
 import AdminDashboardStats from '@/components/admin/AdminDashboardStats.vue'
-import AdminUpcomingGames from '@/components/admin/AdminUpcomingGames.vue'
+import UpcomingGames from '@/components/common/UpcomingGames.vue'
 
 const crewMembers = ref([])
 const games = ref([])
@@ -33,12 +33,13 @@ onMounted(async () => {
   try {
     crewMembers.value = await getUsersByRole('CREW_MEMBER')
     games.value = await getAllGames()
+
   } catch (err) {
     console.error('Error loading dashboard:', err)
   } finally {
     window.setInterval(() => {
       loading.value = false
-    }, 1000)
+    }, 500)
   }
 })
 </script>

@@ -16,11 +16,11 @@
 
       <InviteCrewForm v-if="showInvite" @userInvited="fetchUsers" />
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-2 gap-4">
         <div
           v-for="user in users"
           :key="user.id"
-          class="bg-white shadow p-6 rounded-lg flex flex-col justify-between hover:shadow-lg transition"
+          class="bg-white shadow p-6 rounded-lg flex flex-col justify-around hover:shadow-lg transition"
         >
           <div class="space-y-2">
             <h2 class="text-xl font-bold">
@@ -33,7 +33,7 @@
             {{ user.positions?.join(', ') || 'None' }}
           </div>
 
-          <div class="flex gap-3 mt-4">
+          <div class="flex gap-2 mt-4">
             <button
               @click="startEdit(user)"
               class="px-3 py-1 bg-blue-500 text-white rounded"
@@ -100,11 +100,6 @@ function toggleInviteForm() {
 function startEdit(user) {
   selectedUser.value = user
   mode.value = 'edit'
-}
-
-function cancelEdit() {
-  selectedUser.value = null
-  mode.value = null
 }
 
 function startDelete(user) {

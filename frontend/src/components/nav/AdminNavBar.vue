@@ -7,9 +7,10 @@
 
     <!-- Right: Navigation links -->
     <div class="flex gap-4">
-      <RouterLink to="/admin">Home</RouterLink>
-      <RouterLink to="/admin/crew-list">Roster</RouterLink>
-      <RouterLink to="/admin/schedule/create">Create Schedule</RouterLink>
+      <RouterLink :to="{ name: 'admin-home' }">Home</RouterLink>
+      <RouterLink :to="{name: 'admin-crew-list'}">Crew List</RouterLink>
+      <RouterLink :to="{ name: 'admin-game-schedule'}">Game Schedules</RouterLink>
+      <RouterLink :to="{ name: 'admin-crew-schedule'}">Crew Schedules</RouterLink>
       <RouterLink to="/login?loggedOut=true" @click.prevent="handleLogout"
         >Log Out</RouterLink
       >
