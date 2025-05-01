@@ -1,0 +1,271 @@
+{
+  "users": [
+    {
+      "firstName": "Eric",
+      "lastName": "Licea Tapia",
+      "email": "admin@tcu.edu",
+      "phoneNumber": "1234567890",
+      "role": "ADMIN",
+      "positions": [
+        "DIRECTOR"
+      ],
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "firstName": "Angel",
+      "lastName": "Solis",
+      "email": "compa@tcu.edu",
+      "phoneNumber": "9876543210",
+      "role": "CREW_MEMBER",
+      "positions": [
+        "CAMERA_OPERATOR",
+        "AUDIO"
+      ],
+      "password": "compa123"
+    },
+    {
+      "id": "3",
+      "firstName": "Matthew",
+      "lastName": "Oviedo",
+      "email": "matt@tcu.edu",
+      "phoneNumber": "1234567890",
+      "role": "CREW_MEMBER",
+      "positions": [
+        "CAMERA_OPERATOR",
+        "GRAPHICS"
+      ],
+      "password": "matt123"
+    },
+    {
+      "id": "4",
+      "firstName": "Carlos",
+      "lastName": "Prudhomme",
+      "email": "carlos@tcu.edu",
+      "phoneNumber": "1234567890",
+      "role": "ADMIN",
+      "positions": [
+        "TECHNICAL_DIRECTOR",
+        "CAMERA_OPERATOR"
+      ],
+      "password": "carlos123"
+    },
+    {
+      "id": "5",
+      "firstName": "Crew",
+      "lastName": "Member",
+      "email": "crew@tcu.edu",
+      "phoneNumber": "9999999999",
+      "role": "CREW_MEMBER",
+      "positions": [
+        "GRAPHICS"
+      ],
+      "password": "crew123"
+    },
+    {
+      "firstName": "Kaitlin",
+      "lastName": "Peña",
+      "email": "kaitlin@tcu.edu",
+      "phoneNumber": "0987654321",
+      "role": "CREW_MEMBER",
+      "positions": [
+        "AUDIO"
+      ],
+      "id": "6"
+    }
+  ],
+  "gameSchedules": [
+    {
+      "id": "1",
+      "sport": "Football",
+      "season": "2024-2025"
+    },
+    {
+      "id": 2,
+      "sport": "Baseball",
+      "season": "2024-2025"
+    },
+    {
+      "id": 3,
+      "sport": "Volleyball",
+      "season": "2024-2025"
+    }
+  ],
+  "games": [
+    {
+      "gameId": 1,
+      "scheduleId": 1,
+      "gameDate": "2025-09-01",
+      "venue": "Amon G. Carter Stadium",
+      "opponent": "Texas Longhorns",
+      "isFinalized": false
+    },
+    {
+      "gameId": 2,
+      "scheduleId": 1,
+      "gameDate": "2025-09-08",
+      "venue": "Amon G. Carter Stadium",
+      "opponent": "Oklahoma Sooners",
+      "isFinalized": false
+    },
+    {
+      "gameId": 3,
+      "scheduleId": 2,
+      "gameDate": "2025-09-15",
+      "venue": "Brown Lupton Stadium",
+      "opponent": "Baylor Bears",
+      "isFinalized": false
+    },
+    {
+      "gameId": 4,
+      "scheduleId": 1,
+      "gameDate": "2025-09-22",
+      "venue": "Amon G. Carter Stadium",
+      "opponent": "Texas Tech Red Raiders",
+      "isFinalized": false
+    },
+    {
+      "id": "a1f6",
+      "scheduleId": 1,
+      "gameDate": "2025-09-23",
+      "venue": "Amon G. Carter",
+      "opponent": "Michigan Wolverines",
+      "isFinalized": false
+    },
+    {
+      "id": "b8a7",
+      "scheduleId": 1,
+      "gameDate": "2025-09-30",
+      "venue": "Amon G. Carter",
+      "opponent": "Ohio State Buckeyes",
+      "isFinalized": false
+    },
+    {
+      "id": "9615",
+      "scheduleId": 2,
+      "gameDate": "2025-09-17",
+      "venue": "Brown Lupton Stadium",
+      "opponent": "Texas A&M Aggies",
+      "isFinalized": false
+    },
+    {
+      "id": "cec5",
+      "scheduleId": null,
+      "gameDate": "2025-04-10",
+      "venue": "Schollmeir Arena",
+      "opponent": "Texas Tech",
+      "isFinalized": false
+    },
+    {
+      "id": "9728",
+      "scheduleId": 2,
+      "gameDate": "2025-04-02",
+      "venue": "Brown Lupton",
+      "opponent": "Texas Tech",
+      "isFinalized": false
+    },
+    {
+      "id": "b2c1",
+      "scheduleId": null,
+      "gameDate": "2025-04-05",
+      "venue": "Schollmeier Arena",
+      "opponent": "Texas Tech",
+      "isFinalized": false
+    },
+    {
+      "id": "0cc7",
+      "scheduleId": 3,
+      "gameDate": "2025-03-19",
+      "venue": "wefewf",
+      "opponent": "fewfew",
+      "isFinalized": false
+    }
+  ],
+  "crewLists": [
+    {
+      "id": 1,
+      "gameId": 1,
+      "crewedUsers": [
+        {
+          "userId": "1",
+          "fullName": "Eric Licea Tapia",
+          "position": "Director",
+          "reportTime": "TBD"
+        },
+        {
+          "userId": "4",
+          "fullName": "Carlos Prudhomme",
+          "position": "Technical Director",
+          "reportTime": "TBD"
+        },
+        {
+          "userId": "2",
+          "fullName": "Angel Solis",
+          "position": "Camera Operator",
+          "reportTime": "TBD"
+        },
+        {
+          "userId": "2",
+          "fullName": "Angel Solis",
+          "position": "Audio",
+          "reportTime": "TBD"
+        },
+        {
+          "userId": "3",
+          "fullName": "Matthew Oviedo",
+          "position": "Graphics",
+          "reportTime": "TBD"
+        }
+      ]
+    },
+    {
+      "id": "9266",
+      "gameId": 2,
+      "crewedUsers": [
+        {
+          "userId": "1",
+          "fullName": "Eric Licea Tapia",
+          "position": "Director",
+          "reportTime": "TBD"
+        },
+        {
+          "userId": "4",
+          "fullName": "Carlos Prudhomme",
+          "position": "Technical Director",
+          "reportTime": "TBD"
+        },
+        {
+          "userId": "3",
+          "fullName": "Matthew Oviedo",
+          "position": "Camera Operator",
+          "reportTime": "TBD"
+        },
+        {
+          "userId": "2",
+          "fullName": "Angel Solis",
+          "position": "Audio",
+          "reportTime": "TBD"
+        },
+        {
+          "userId": "5",
+          "fullName": "Crew Member",
+          "position": "Graphics",
+          "reportTime": "TBD"
+        }
+      ]
+    }
+  ],
+  "crewSchedules": [
+    {
+      "gameId": 1,
+      "changes": [
+        {
+          "action": "ASSIGN",
+          "id": 3,
+          "position": "UTILITY",
+          "fullName": "Matthew Oviedo"
+        }
+      ]
+    }
+  ]
+}
