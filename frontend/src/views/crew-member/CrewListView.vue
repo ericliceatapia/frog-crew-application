@@ -1,5 +1,3 @@
-<script setup></script>
-
 <!-- Route: /crew-member/crew-list -->
 
 <template>
@@ -8,3 +6,6 @@
     <!-- Future form here -->
   </div>
 </template>
+
+<script setup>
+</script>

@@ -7,7 +7,7 @@
     <div v-else class="space-y-8">
       <h1 class="text-3xl font-bold mb-4">My Dashboard</h1>
       <CrewProfileSummary :user="user" />
-      <CrewUpcomingGames :games="games" />
+      <UpcomingGames :games="games" />
     </div>
   </div>
 </template>
@@ -19,7 +19,7 @@ import { getAllGames } from '@/apis/games'
 
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue'
 import CrewProfileSummary from '@/components/crew-member/CrewProfileSummary.vue'
-import CrewUpcomingGames from '@/components/crew-member/CrewUpcomingGames.vue'
+import UpcomingGames from '@/components/common/UpcomingGames.vue'
 
 const user = ref(null)
 const games = ref([])
@@ -36,7 +36,7 @@ onMounted(async () => {
   } finally {
     window.setInterval(() => {
       loading.value = false
-    }, 1000)
+    }, 500)
   }
 })
 </script>
